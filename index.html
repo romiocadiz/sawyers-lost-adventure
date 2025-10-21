@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sawyer's Lost Adventure</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="screen active">
+        <div class="login-content">
+            <h1>Sawyer's<br>Lost Adventure</h1>
+            <div class="login-form">
+                <h2>Welcome Back!</h2>
+                <input type="text" id="username" placeholder="Username" maxlength="20" autocomplete="off">
+                <input type="password" id="pin" placeholder="4-Digit PIN" maxlength="4" pattern="[0-9]*" inputmode="numeric">
+                <div class="login-buttons">
+                    <button id="loginBtn" class="btn">Login</button>
+                    <button id="newAccountBtn" class="btn btn-secondary">New Account</button>
+                </div>
+                <div id="loginError" class="error-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Homepage Screen -->
+    <div id="homepage" class="screen">
+        <div class="homepage-content">
+            <h1>Sawyer's<br>Lost Adventure</h1>
+            <div class="dog-container">
+                <img src="Sawyer.svg" alt="Sawyer the Chocolate Lab" class="dog-svg">
+                <div class="speech-bubble">Let's Play!</div>
+            </div>
+            <div class="user-info">
+                <p>Welcome, <span id="displayUsername"></span>!</p>
+                <p class="progress-info">Progress: Level <span id="savedLevel">1</span> • <span id="savedPieces">0</span> pieces</p>
+            </div>
+            <div class="homepage-buttons">
+                <button id="continueBtn" class="btn">Continue Game</button>
+                <button id="newGameBtn" class="btn btn-secondary">New Game</button>
+                <button id="logoutBtn" class="btn btn-small">Logout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="gameScreen" class="screen">
+        <div class="game-header">
+            <div class="level-info">Level: <span id="currentLevel">1</span>/50</div>
+            <div class="puzzle-info">Pieces: <span id="puzzlePieces">0</span>/50</div>
+            <button id="pauseBtn" class="btn-small">Pause (Esc)</button>
+        </div>
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        <div class="controls-hint">
+            Use Arrow Keys to move and jump • Hold Left/Right + Up for running jump • Wall jump by pressing towards wall then up
+        </div>
+    </div>
+
+    <!-- Pause Menu -->
+    <div id="pauseMenu" class="screen overlay">
+        <div class="pause-content">
+            <h1>Game Paused</h1>
+            <div class="pause-buttons">
+                <button id="resumeBtn" class="btn">Resume</button>
+                <button id="saveQuitBtn" class="btn btn-secondary">Save & Quit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Puzzle Screen -->
+    <div id="finalPuzzle" class="screen">
+        <div class="final-content">
+            <h1>Complete the Puzzle!</h1>
+            <p>Drag the pieces to their correct positions</p>
+            <div class="puzzle-container">
+                <div id="puzzleGrid" class="puzzle-grid"></div>
+            </div>
+            <div id="puzzlePiecesContainer" class="puzzle-pieces-container"></div>
+            <button id="playAgain" class="btn">Play Again</button>
+        </div>
+    </div>
+
+    <!-- Victory Screen -->
+    <div id="victoryScreen" class="screen">
+        <div class="final-content">
+            <h1>Amazing Work!</h1>
+            <p class="victory-message">Sawyer found his dad with the milk!</p>
+            <div class="revealed-image">
+                <img id="revealedPicture" src="victory-photo.jpg" alt="Sawyer found his dad!">
+            </div>
+            <button id="playAgainVictory" class="btn">Play Again</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
